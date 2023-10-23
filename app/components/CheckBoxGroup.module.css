@@ -1,0 +1,36 @@
+.checkBoxFormGroup {
+  margin-left: 124px;
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 468px;
+  row-gap: 15px;
+  column-gap: 24px;
+}
+
+.selectAll {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.district {
+  flex: 0.25 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.checkBox {
+  width: 18px;
+  height: 18px;
+  margin-right: 13px;
+  accent-color: #b6cc23;
+}
