@@ -31,19 +31,23 @@ const page = () => {
   }, []);
 
   useEffect(() => {
-    const filteredData = youbikeData.filter((station) => {
-      const districtMatch =
-        selectedDistricts.length === 0 ||
-        selectedDistricts.includes(station.sarea);
+    if (selectedDistricts.length === 0) {
+      setFilteredYoubikeData([]);
+    } else {
+      const filteredData = youbikeData.filter((station) => {
+        const districtMatch =
+          selectedDistricts.length === 0 ||
+          selectedDistricts.includes(station.sarea);
 
-      const stationMatch = station.sna
-        .toLowerCase()
-        .includes(searchStation.toLowerCase());
+        const stationMatch = station.sna
+          .toLowerCase()
+          .includes(searchStation.toLowerCase());
 
-      return districtMatch && stationMatch;
-    });
+        return districtMatch && stationMatch;
+      });
 
-    setFilteredYoubikeData(filteredData);
+      setFilteredYoubikeData(filteredData);
+    }
   }, [selectedDistricts, searchStation]);
 
   const handleSelectCity = (value) => {
