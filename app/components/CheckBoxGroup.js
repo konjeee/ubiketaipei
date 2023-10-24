@@ -42,7 +42,7 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
     );
 
     onSelect(selectedDistricts);
-  }, [checkedItems, onSelect]);
+  }, [checkedItems]);
 
   return (
     <>
