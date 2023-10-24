@@ -29,7 +29,9 @@ const Table = ({ datas, columns, city }) => {
           <tr key={data.sno} className={styles.tableBodyRow}>
             <td className={styles.tableData}>{cityName}</td>
             <td className={styles.tableData}>{data.sarea}</td>
-            <td className={styles.tableData}>{data.sna}</td>
+            <td className={styles.tableData}>
+              {data.sna.replace("YouBike2.0_", "")}
+            </td>
             <td className={styles.tableData}>{data.sbi}</td>
             <td className={styles.tableData}>{data.bemp}</td>
           </tr>
