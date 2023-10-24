@@ -1,30 +1,39 @@
-//選擇縣市 #aeaeae
-//勾勾
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Select.module.css";
 
 const Select = ({ options, selectedValue, onSelect }) => {
-  const handleChange = (event) => {
-    const selectedOption = event.target.value;
-    onSelect(selectedOption);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDefault, setIsDefault] = useState(true);
+
+  const handleSelect = (value) => {
+    onSelect(value);
+    setIsOpen(false);
+    setIsDefault(false);
   };
 
   return (
-    <select
-      className={styles.select}
-      value={selectedValue}
-      onChange={handleChange}
-      defaultValue="default"
-    >
-      <option value="default" style={{ color: "#aeaeae" }} disabled hidden>
-        選擇縣市
-      </option>
-      {options.map((option) => (
-        <option key={option.id} value={option.id}>
-          {option.city}
-        </option>
-      ))}
-    </select>
+    <div className={styles.selectWrapper}>
+      <div
+        className={styles.selectHeader}
+        onClick={() => setIsOpen(!isOpen)}
+        style={{ color: isDefault ? "#AEAEAE" : "#323232" }}
+      >
+        {selectedValue}
+      </div>
+      {isOpen && (
+        <div className={styles.dropdown}>
+          {options.map((option) => (
+            <div
+              key={option.id}
+              className={styles.option}
+              onClick={() => handleSelect(option.city)}
+            >
+              {option.city}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
