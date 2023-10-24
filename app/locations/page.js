@@ -61,7 +61,6 @@ const page = () => {
 
   const handleSelectCheckBox = (selectedDistricts) => {
     setSelectedDistricts(selectedDistricts);
-    console.log("Selected Districts:", selectedDistricts);
   };
 
   return (
