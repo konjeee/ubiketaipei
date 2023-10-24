@@ -1,22 +1,17 @@
 import styles from "./Table.module.css";
+import { citys } from "../data";
+import { useEffect, useState } from "react";
 
-const Table = ({ data, columns }) => {
-  const exampleData = [
-    {
-      縣市: "台北市",
-      區域: "松山區",
-      站點名稱: "站點1",
-      可借車輛: 10,
-      可還空位: 5,
-    },
-    {
-      縣市: "台北市",
-      區域: "信義區",
-      站點名稱: "站點2",
-      可借車輛: 8,
-      可還空位: 3,
-    },
-  ];
+const Table = ({ datas, columns, city }) => {
+  const [cityName, setCityName] = useState("");
+
+  useEffect(() => {
+    citys.forEach((country) => {
+      if (country.id == city) {
+        setCityName(country.city);
+      }
+    });
+  }, [city]);
 
   return (
     <table className={styles.table}>
@@ -30,13 +25,15 @@ const Table = ({ data, columns }) => {
         </tr>
       </thead>
       <tbody>
-        {exampleData.map((row, rowIndex) => (
-          <tr key={rowIndex} className={styles.tableBodyRow}>
-            {columns.map((column, columnIndex) => (
-              <td key={columnIndex} className={styles.tableData}>
-                {row[column]}
-              </td>
-            ))}
+        {datas.map((data) => (
+          <tr key={data.sno} className={styles.tableBodyRow}>
+            <td className={styles.tableData}>{cityName}</td>
+            <td className={styles.tableData}>{data.sarea}</td>
+            <td className={styles.tableData}>
+              {data.sna.replace("YouBike2.0_", "")}
+            </td>
+            <td className={styles.tableData}>{data.sbi}</td>
+            <td className={styles.tableData}>{data.bemp}</td>
           </tr>
         ))}
       </tbody>

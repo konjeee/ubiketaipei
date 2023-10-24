@@ -1,13 +1,13 @@
 import Divider from "./components/Divider";
 import Header from "./components/Header";
+import Title from "./components/Title";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Divider />
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the home page content.</p>
+      <Title title="主頁" />
     </>
   );
 }

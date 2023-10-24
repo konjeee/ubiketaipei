@@ -10,39 +10,15 @@ import styles from "./Location.module.css";
 import CheckBoxGroup from "../components/CheckBoxGroup";
 import Image from "next/image";
 import Table from "../components/Table";
-
-const citys = [
-  { id: 1, city: "台北市" },
-  { id: 2, city: "新北市" },
-  { id: 3, city: "新竹縣" },
-  { id: 4, city: "新竹市" },
-  { id: 5, city: "新竹科學園區" },
-  { id: 6, city: "苗栗縣" },
-  { id: 7, city: "台中市" },
-  { id: 8, city: "嘉義市" },
-  { id: 9, city: "台南市" },
-  { id: 10, city: "高雄市" },
-  { id: 11, city: "屏東縣" },
-];
-
-const options = [
-  { id: 1, district: "松山區" },
-  { id: 2, district: "信義區" },
-  { id: 3, district: "大安區" },
-  { id: 4, district: "中山區" },
-  { id: 5, district: "中正區" },
-  { id: 6, district: "大同區" },
-  { id: 7, district: "萬華區" },
-  { id: 8, district: "文山區" },
-  { id: 9, district: "南港區" },
-  { id: 10, district: "內湖區" },
-  { id: 11, district: "士林區" },
-  { id: 12, district: "北投區" },
-];
+import { citys, options, columns } from "../data";
 
 const page = () => {
   const [youbikeData, setYouBikeData] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(citys[0].value);
+  const [filteredYoubikeData, setFilteredYoubikeData] = useState([]);
+  const [selectedCity, setSelectedCity] = useState();
+  const [selectedDistricts, setSelectedDistricts] = useState([]);
+  const [searchStation, setSearchStation] = useState("");
+  const [showCheckBoxGroup, setShowCheckBoxGroup] = useState(false);
 
   useEffect(() => {
     fetchYouBikeData()
@@ -54,20 +30,39 @@ const page = () => {
       });
   }, []);
 
-  const handleSelect = (value) => {
-    setSelectedOption(value);
-    console.log(value);
+  useEffect(() => {
+    if (selectedDistricts.length === 0) {
+      setFilteredYoubikeData([]);
+    } else {
+      const filteredData = youbikeData.filter((station) => {
+        const districtMatch =
+          selectedDistricts.length === 0 ||
+          selectedDistricts.includes(station.sarea);
+
+        const stationMatch = station.sna
+          .toLowerCase()
+          .includes(searchStation.toLowerCase());
+
+        return districtMatch && stationMatch;
+      });
+
+      setFilteredYoubikeData(filteredData);
+    }
+  }, [selectedDistricts, searchStation]);
+
+  const handleSelectCity = (value) => {
+    setSelectedCity(value);
+    setShowCheckBoxGroup(true);
   };
 
-  const handleSearch = (query) => {
-    console.log("Searching for:", query);
+  const handleSearchStation = (query) => {
+    setSearchStation(query);
   };
 
   const handleSelectCheckBox = (selectedDistricts) => {
+    setSelectedDistricts(selectedDistricts);
     console.log("Selected Districts:", selectedDistricts);
   };
-
-  const columns = ["縣市", "區域", "站點名稱", "可借車輛", "可還空位"];
 
   return (
     <>
@@ -79,12 +74,18 @@ const page = () => {
           <div className={styles.search}>
             <Select
               options={citys}
-              selectedValue={selectedOption}
-              onSelect={handleSelect}
+              selectedValue={selectedCity}
+              onSelect={handleSelectCity}
             />
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearchStation} />
           </div>
-          <CheckBoxGroup options={options} onSelect={handleSelectCheckBox} />
+          {showCheckBoxGroup && (
+            <CheckBoxGroup
+              options={options}
+              onSelect={handleSelectCheckBox}
+              selectedCity={selectedCity}
+            />
+          )}
         </div>
         <div className={styles.right}>
           <Image
@@ -97,7 +98,11 @@ const page = () => {
           ></Image>
         </div>
       </div>
-      <Table data={youbikeData} columns={columns} />
+      <Table
+        datas={filteredYoubikeData}
+        columns={columns}
+        city={selectedCity}
+      />
     </>
   );
 };

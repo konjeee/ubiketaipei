@@ -7,7 +7,6 @@ const CheckBox = ({ district, checked, onChange }) => {
       <label className={styles.district}>
         <input
           type="checkbox"
-          id={district}
           checked={checked}
           onChange={onChange}
           className={styles.checkBox}
@@ -16,7 +15,6 @@ const CheckBox = ({ district, checked, onChange }) => {
       </label>
     </div>
   );
-  ``;
 };
 
 export default CheckBox;

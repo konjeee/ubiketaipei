@@ -2,31 +2,17 @@ import React, { useEffect, useState } from "react";
 import CheckBox from "./CheckBox";
 import styles from "./CheckBoxGroup.module.css";
 
-const CheckBoxGroup = ({ options, onSelect }) => {
-  const [checkedItems, setCheckedItems] = useState({});
-  const [checkAll, setCheckAll] = useState(false);
+const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
+  const [filteredOptions, setFilteredOptions] = useState([]);
+  const [allChecked, setAllChecked] = useState(true);
+  const [checkedItems, setCheckedItems] = useState([]);
 
-  const handleCheckBoxChange = (district) => {
-    const newCheckedItems = { ...checkedItems };
-    newCheckedItems[district] = !newCheckedItems[district];
-    setCheckedItems(newCheckedItems);
-  };
-
-  const handleCheckAllChange = () => {
-    const newCheckAll = !checkAll;
-    setCheckAll(newCheckAll);
-
-    if (newCheckAll) {
-      const allDistricts = options.map((option) => option.district);
-      const allChecked = {};
-      allDistricts.forEach((district) => {
-        allChecked[district] = true;
-      });
-      setCheckedItems(allChecked);
-    } else {
-      setCheckedItems({});
-    }
-  };
+  useEffect(() => {
+    const cityFilteredOptions = options.filter(
+      (option) => option.city == selectedCity
+    );
+    setFilteredOptions(cityFilteredOptions);
+  }, [selectedCity]);
 
   useEffect(() => {
     const selectedDistricts = Object.keys(checkedItems).filter(
@@ -34,7 +20,50 @@ const CheckBoxGroup = ({ options, onSelect }) => {
     );
 
     onSelect(selectedDistricts);
-  }, [checkedItems, onSelect]);
+  }, [checkedItems]);
+
+  const handleCheckBoxChange = (option) => {
+    const newFilteredOptions = filteredOptions.map((item) => {
+      if (item.id === option.id) {
+        return {
+          ...item,
+          checked: !item.checked,
+        };
+      }
+      return item;
+    });
+
+    setFilteredOptions(newFilteredOptions);
+
+    const newCheckedItems = {};
+    newFilteredOptions.forEach((item) => {
+      newCheckedItems[item.district] = item.checked;
+    });
+
+    setCheckedItems(newCheckedItems);
+
+    const areAllChecked = newFilteredOptions.every((item) => item.checked);
+    setAllChecked(areAllChecked);
+  };
+
+  const handleCheckAllChange = () => {
+    const newChecked = !allChecked;
+    setAllChecked(newChecked);
+
+    const updatedOptions = filteredOptions.map((option) => ({
+      ...option,
+      checked: newChecked,
+    }));
+
+    setFilteredOptions(updatedOptions);
+
+    const newCheckedItems = {};
+    updatedOptions.forEach((option) => {
+      newCheckedItems[option.district] = newChecked;
+    });
+
+    setCheckedItems(newCheckedItems);
+  };
 
   return (
     <>
@@ -43,18 +72,18 @@ const CheckBoxGroup = ({ options, onSelect }) => {
           <input
             type="checkbox"
             id="checkAll"
-            checked={checkAll}
+            checked={allChecked}
             onChange={handleCheckAllChange}
             className={styles.checkBox}
           />
           全部勾選
         </label>
-        {options.map((option) => (
+        {filteredOptions.map((option) => (
           <CheckBox
+            key={option.id}
             district={option.district}
-            key={option.district}
-            checked={checkedItems[option.district] || false}
-            onChange={() => handleCheckBoxChange(option.district)}
+            checked={option.checked}
+            onChange={() => handleCheckBoxChange(option)}
           />
         ))}
       </div>
