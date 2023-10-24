@@ -9,7 +9,7 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
 
   useEffect(() => {
     const cityFilteredOptions = options.filter(
-      (option) => option.city == selectedCity
+      (option) => option.city === selectedCity
     );
     setFilteredOptions(cityFilteredOptions);
 
