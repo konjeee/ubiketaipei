@@ -12,15 +12,21 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
       (option) => option.city == selectedCity
     );
     setFilteredOptions(cityFilteredOptions);
+
+    const initialCheckedItems = {};
+    cityFilteredOptions.forEach((option) => {
+      initialCheckedItems[option.district] = option.checked;
+    });
+    setCheckedItems(initialCheckedItems);
   }, [selectedCity]);
 
   useEffect(() => {
-    const selectedDistricts = Object.keys(checkedItems).filter(
-      (key) => checkedItems[key]
-    );
+    const selectedDistricts = Object.keys(checkedItems).filter((key) => {
+      return checkedItems[key];
+    });
 
     onSelect(selectedDistricts);
-  }, [checkedItems]);
+  }, [checkedItems, allChecked]);
 
   const handleCheckBoxChange = (option) => {
     const newFilteredOptions = filteredOptions.map((item) => {
@@ -48,7 +54,7 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
 
   const handleCheckAllChange = () => {
     const newChecked = !allChecked;
-    setAllChecked(newChecked);
+    setAllChecked((prevAllChecked) => !prevAllChecked);
 
     const updatedOptions = filteredOptions.map((option) => ({
       ...option,
@@ -62,7 +68,10 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
       newCheckedItems[option.district] = newChecked;
     });
 
-    setCheckedItems(newCheckedItems);
+    setCheckedItems((prevCheckedItems) => ({
+      ...prevCheckedItems,
+      ...newCheckedItems,
+    }));
   };
 
   return (
@@ -82,6 +91,7 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
         {filteredOptions.map((option) => (
           <CheckBox
             key={option.id}
+            id={option.id}
             district={option.district}
             checked={option.checked}
             onChange={() => handleCheckBoxChange(option)}
