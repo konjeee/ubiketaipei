@@ -15,7 +15,6 @@ const CheckBox = ({ district, checked, onChange }) => {
       </label>
     </div>
   );
-  ``;
 };
 
 export default CheckBox;
