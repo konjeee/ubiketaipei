@@ -9,8 +9,9 @@ const CheckBox = ({ district, checked, onChange }) => {
           type="checkbox"
           checked={checked}
           onChange={onChange}
-          className={styles.checkBox}
+          className={styles.checkboxInput}
         />
+        <span className={styles.customCheckbox}></span>
         {district}
       </label>
     </div>
