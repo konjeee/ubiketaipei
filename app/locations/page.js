@@ -57,7 +57,6 @@ const page = () => {
 
   const handleSearchStation = (query) => {
     setSearchStation(query);
-    console.log("Searching for:", query);
   };
 
   const handleSelectCheckBox = (selectedDistricts) => {
