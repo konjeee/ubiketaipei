@@ -15,7 +15,7 @@ import { citys, options, columns } from "../data";
 const page = () => {
   const [youbikeData, setYouBikeData] = useState([]);
   const [filteredYoubikeData, setFilteredYoubikeData] = useState([]);
-  const [selectedCity, setSelectedCity] = useState();
+  const [selectedCity, setSelectedCity] = useState("選擇縣市");
   const [selectedDistricts, setSelectedDistricts] = useState([]);
   const [searchStation, setSearchStation] = useState("");
   const [showCheckBoxGroup, setShowCheckBoxGroup] = useState(false);
