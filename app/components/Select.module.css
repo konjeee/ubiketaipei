@@ -1,19 +1,38 @@
-.select {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background: url(/arrow.svg) 90% / 18px no-repeat;
+.selectWrapper {
+  position: relative;
+  width: 175px;
+}
 
+.selectHeader {
+  background-color: #f6f6f6;
   padding: 8px 50px 8px 16px;
   border-radius: 8px;
-  border: none;
+  cursor: pointer;
+  margin-bottom: 12px;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  text-align: center;
+  background: url(/arrow.svg) 90% / 18px no-repeat;
   background-color: #f6f6f6;
+  color: #323232;
 }
-/* 
-.select {
-  color: #aeaeae;
-} */
+
+.dropdown {
+  position: absolute;
+  width: 100%;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 8px;
+}
+
+.option {
+  cursor: pointer;
+  margin: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #323232;
+}
+
+.option:hover {
+  color: #b5cc22;
+}

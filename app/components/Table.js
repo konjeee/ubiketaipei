@@ -7,7 +7,7 @@ const Table = ({ datas, columns, city }) => {
 
   useEffect(() => {
     citys.forEach((country) => {
-      if (country.id == city) {
+      if (country.city === city) {
         setCityName(country.city);
       }
     });
