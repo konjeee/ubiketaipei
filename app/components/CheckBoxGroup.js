@@ -74,8 +74,9 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
             id="checkAll"
             checked={allChecked}
             onChange={handleCheckAllChange}
-            className={styles.checkBox}
+            className={styles.checkboxInput}
           />
+          <span className={styles.customCheckbox}></span>
           全部勾選
         </label>
         {filteredOptions.map((option) => (

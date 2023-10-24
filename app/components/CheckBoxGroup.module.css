@@ -28,9 +28,26 @@
   margin-right: 10px;
 }
 
-.checkBox {
+.checkboxInput {
+  display: none;
+}
+
+.customCheckbox {
+  display: inline-block;
   width: 18px;
   height: 18px;
   margin-right: 13px;
-  accent-color: #b6cc23;
+  background-color: #fff;
+  background-image: url("/uncheck.svg");
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+}
+
+.checkboxInput:checked + .customCheckbox {
+  background-color: #b6cc23;
+  background-image: url("/check.svg");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2px;
 }
