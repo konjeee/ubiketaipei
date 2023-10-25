@@ -13,7 +13,7 @@
 .pages {
   display: flex;
   gap: 40px;
-  @media (max-width: 940px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
@@ -50,7 +50,7 @@
   background-color: #b6cc23;
   padding: 10px 24px;
   border-radius: 100px;
-  @media (max-width: 940px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
@@ -63,13 +63,13 @@
   line-height: 20px;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1024px) {
   .hamburgerMenu {
     display: block;
   }
 }
 
-@media (min-width: 941px) {
+@media (min-width: 1025px) {
   .hamburgerMenu {
     display: none;
   }
