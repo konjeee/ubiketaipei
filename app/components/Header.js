@@ -88,11 +88,44 @@ const Header = () => {
           <div className={styles.menu}>
             <div className={styles.menuContent}>
               <div className={styles.menuPages}>
-                <Link href="/usage">使用說明</Link>
-                <Link href="/pricing">收費方式</Link>
-                <Link href="/locations">站點資訊</Link>
-                <Link href="/news">最新消息</Link>
-                <Link href="/events">活動專區</Link>
+                <Link
+                  className={
+                    router === "/usage" ? styles.activeMenu : undefined
+                  }
+                  href="/usage"
+                >
+                  使用說明
+                </Link>
+                <Link
+                  className={
+                    router === "/pricing" ? styles.activeMenu : undefined
+                  }
+                  href="/pricing"
+                >
+                  收費方式
+                </Link>
+                <Link
+                  className={
+                    router === "/locations" ? styles.activeMenu : undefined
+                  }
+                  href="/locations"
+                >
+                  站點資訊
+                </Link>
+                <Link
+                  className={router === "/news" ? styles.activeMenu : undefined}
+                  href="/news"
+                >
+                  最新消息
+                </Link>
+                <Link
+                  className={
+                    router === "/events" ? styles.activeMenu : undefined
+                  }
+                  href="/events"
+                >
+                  活動專區
+                </Link>
               </div>
               <div className={styles.menuLogin}>
                 <Link href="/login">登入</Link>
