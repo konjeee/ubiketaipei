@@ -1,6 +1,13 @@
-.table {
-  width: 83%;
+.tablecontainer {
   margin: 40px 8%;
+  border-bottom: 0.5px solid #aeaeae;
+  border-left: 0.5px solid #aeaeae;
+  border-right: 0.5px solid #aeaeae;
+  border-radius: 28px;
+}
+
+.table {
+  width: 100%;
   border-collapse: collapse;
 }
 

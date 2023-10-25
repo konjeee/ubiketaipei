@@ -18,6 +18,7 @@ const CheckBoxGroup = ({ options, onSelect, selectedCity }) => {
       initialCheckedItems[option.district] = option.checked;
     });
     setCheckedItems(initialCheckedItems);
+    setAllChecked(true);
   }, [selectedCity]);
 
   useEffect(() => {
