@@ -2,13 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 124px;
-  margin-right: 124px;
-  height: 104px;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 .logo {
   margin-right: 20px;
+}
+
+.pages {
+  display: flex;
+  gap: 40px;
+  @media (max-width: 940px) {
+    display: none;
+  }
 }
 
 .navLinks {
@@ -43,6 +50,9 @@
   background-color: #b6cc23;
   padding: 10px 24px;
   border-radius: 100px;
+  @media (max-width: 940px) {
+    display: none;
+  }
 }
 
 .loginLink {
@@ -51,4 +61,65 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
+}
+
+@media (max-width: 940px) {
+  .hamburgerMenu {
+    display: block;
+  }
+}
+
+@media (min-width: 941px) {
+  .hamburgerMenu {
+    display: none;
+  }
+}
+
+.menu {
+  margin-top: 100px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #b5cc22;
+  z-index: 1;
+}
+
+.menuContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 77%;
+  padding: 32px;
+}
+
+.menuContent a {
+  text-decoration: none;
+  color: #fff;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.menuPages {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.menuLogin {
+  background-color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 100px;
+}
+
+.menuLogin a {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #b5cc22;
 }
