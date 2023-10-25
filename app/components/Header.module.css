@@ -104,6 +104,10 @@
   letter-spacing: 0.18em;
 }
 
+.menuContent a:hover {
+  color: #677510;
+}
+
 .menuPages {
   display: flex;
   flex-direction: column;
@@ -122,4 +126,8 @@
   line-height: 20px;
   text-align: center;
   color: #b5cc22;
+}
+
+.activeMenu {
+  color: #677510 !important;
 }
