@@ -1,18 +1,24 @@
 .searchContainer {
   width: 310px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .searchbar {
   background: url(/search_24px.svg) 90% / 18px no-repeat;
   width: 100%;
-  padding: 8px 16px 8px 16px;
+  padding: 10px 16px 10px 16px;
   border-radius: 8px;
   font-size: 18px;
   font-weight: 500;
   color: #b5cc22;
   border: none;
   background-color: #f6f6f6;
-  font-family: Noto Sans CJK TC;
+  @media (max-width: 768px) {
+    padding: 10px 0px 10px 16px;
+    font-size: 16px;
+  }
 }
 
 .suggestionList {
@@ -34,6 +40,9 @@
   font-size: 18px;
   font-weight: 400;
   transition: background-color 0.3s;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .suggestionItem:hover {
