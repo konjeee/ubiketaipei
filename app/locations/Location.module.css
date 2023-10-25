@@ -3,6 +3,16 @@
   margin-left: 124px;
   margin-top: 32px;
   gap: 16px;
+
+  @media (max-width: 1024px) {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 .menu {
@@ -15,7 +25,7 @@
 .right {
   flex: 1;
   margin-top: 201px;
-  @media (max-width: 1000px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
