@@ -1,12 +1,42 @@
+.searchContainer {
+  width: 310px;
+}
+
 .searchbar {
   background: url(/search_24px.svg) 90% / 18px no-repeat;
-
+  width: 100%;
   padding: 8px 16px 8px 16px;
   border-radius: 8px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 20px;
-  color: #aeaeae;
+  color: #b5cc22;
   border: none;
   background-color: #f6f6f6;
+  font-family: Noto Sans CJK TC;
+}
+
+.suggestionList {
+  max-width: 310px;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  background-color: #f6f6f6;
+  max-height: 273px;
+  overflow-y: auto;
+  margin-top: 13px;
+  border-radius: 8px;
+}
+
+.suggestionItem {
+  cursor: pointer;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  transition: background-color 0.3s;
+}
+
+.suggestionItem:hover {
+  color: #b5cc22;
+  font-weight: 500;
 }

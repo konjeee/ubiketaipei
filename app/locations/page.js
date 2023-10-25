@@ -76,7 +76,10 @@ const page = () => {
               selectedValue={selectedCity}
               onSelect={handleSelectCity}
             />
-            <SearchBar onSearch={handleSearchStation} />
+            <SearchBar
+              onSearch={handleSearchStation}
+              siteData={filteredYoubikeData}
+            />
           </div>
           {showCheckBoxGroup && (
             <CheckBoxGroup
