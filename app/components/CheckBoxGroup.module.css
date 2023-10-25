@@ -6,6 +6,9 @@
   max-width: 468px;
   row-gap: 15px;
   column-gap: 24px;
+  @media (max-width: 1024px) {
+    margin-left: 10%;
+  }
 }
 
 .selectAll {
@@ -16,6 +19,9 @@
   font-size: 18px;
   font-weight: 400;
   cursor: pointer;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .district {
@@ -28,6 +34,9 @@
   margin-top: 15px;
   margin-right: 10px;
   cursor: pointer;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .checkboxInput {
