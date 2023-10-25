@@ -5,4 +5,13 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   color: #b5cc22;
+  @media (max-width: 1024px) {
+    margin-left: 8%;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 8%;
+    margin-top: 24px;
+    font-size: 18px;
+  }
 }
