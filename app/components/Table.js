@@ -25,7 +25,7 @@ const Table = ({ datas, columns, city }) => {
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles.tableBody}>
           {datas.map((data) => (
             <tr key={data.sno} className={styles.tableBodyRow}>
               <td className={styles.tableData}>{cityName}</td>
