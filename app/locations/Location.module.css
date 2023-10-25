@@ -15,4 +15,7 @@
 .right {
   flex: 1;
   margin-top: 201px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 }
