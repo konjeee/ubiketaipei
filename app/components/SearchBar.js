@@ -65,7 +65,7 @@ const SearchBar = ({ onSearch, siteData }) => {
         onInput={handleInput}
         autoComplete="off"
         className={styles.searchbar}
-        style={{ color: inputColor }} // 动态设置 input 颜色
+        style={{ color: inputColor }}
       />
       <ul className={styles.suggestionList}>
         {suggestions.map((suggestion) => (
