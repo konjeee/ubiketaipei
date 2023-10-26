@@ -11,6 +11,14 @@ const Header = () => {
 
   const handleHamburgerMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+
+    if (!isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.width = "auto";
+    }
   };
 
   return (
