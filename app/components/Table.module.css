@@ -80,3 +80,22 @@
   border-bottom: 0.5px solid #aeaeae;
   border-radius: 0 0 28px 0;
 }
+
+.tableHeader:nth-child(1),
+.tableHeader:nth-child(2) {
+  @media (max-width: 768px) {
+    min-width: 60px;
+  }
+}
+
+.tableHeader:nth-child(3) {
+  @media (max-width: 768px) {
+    min-width: 200px;
+  }
+}
+.tableHeader:nth-child(4),
+.tableHeader:nth-child(5) {
+  @media (max-width: 768px) {
+    min-width: 80px;
+  }
+}
