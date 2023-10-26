@@ -91,7 +91,7 @@ const page = () => {
         </div>
         <div className={styles.right}>
           <Image
-            src="./frame.svg"
+            src="../images/frame.svg"
             alt="ubike"
             width={500}
             height={170}
