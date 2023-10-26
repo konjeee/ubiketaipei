@@ -19,7 +19,7 @@ const Header = () => {
         <div className={styles.navLinks}>
           <Link href="/">
             <Image
-              src="/logo.svg"
+              src="./logo.svg"
               alt="Logo"
               width={95}
               height={95}
@@ -77,8 +77,8 @@ const Header = () => {
         </div>
         <div className={styles.hamburgerMenu}>
           <Image
-            src={isMenuOpen ? "/x.svg" : "/hamburgerMenu.svg"}
-            alt={isMenuOpen ? "Close" : "Open"}
+            src={isMenuOpen ? "./x.svg" : "./hamburgerMenu.svg"}
+            alt={isMenuOpen ? "X" : "HamburgerMenu"}
             width={24}
             height={24}
             onClick={handleHamburgerMenu}
