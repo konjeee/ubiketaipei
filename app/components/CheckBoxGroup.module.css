@@ -49,14 +49,14 @@
   height: 18px;
   margin-right: 13px;
   background-color: #fff;
-  background-image: url("/ubiketaipei/public/uncheck.svg");
+  background-image: url("/uncheck.svg");
   background-size: 18px 18px;
   background-repeat: no-repeat;
 }
 
 .checkboxInput:checked + .customCheckbox {
   background-color: #b6cc23;
-  background-image: url("/ubiketaipei/public/check.svg");
+  background-image: url("/check.svg");
   background-size: 12px;
   background-repeat: no-repeat;
   background-position: center;

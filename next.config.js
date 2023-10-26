@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
 
   // Add basePath
-  basePath: "/ubiketaipei",
   output: "export",
 };
 
