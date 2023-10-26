@@ -7,7 +7,7 @@
 
 .searchbar {
   background: url("../images/search.svg") 90% / 18px no-repeat;
-  width: 100%;
+  width: calc(100% - 16px);
   padding: 10px 16px 10px 16px;
   border-radius: 8px;
   font-size: 18px;
