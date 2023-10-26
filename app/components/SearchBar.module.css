@@ -6,7 +6,7 @@
 }
 
 .searchbar {
-  background: url(../public/search_24px.svg) 90% / 18px no-repeat;
+  background: url("../public/search_24px.svg") 90% / 18px no-repeat;
   width: 100%;
   padding: 10px 16px 10px 16px;
   border-radius: 8px;
