@@ -159,4 +159,10 @@ export const options = [
   { id: 144, city: "屏東縣", district: "麟洛鄉", checked: true },
 ];
 
-export const columns = ["縣市", "區域", "站點名稱", "可借車輛", "可還空位"];
+export const columns = [
+  { key: "city", label: "縣市" },
+  { key: "sarea", label: "區域" },
+  { key: "sna", label: "站點名稱" },
+  { key: "sbi", label: "可借車輛" },
+  { key: "bemp", label: "可還空位" },
+];

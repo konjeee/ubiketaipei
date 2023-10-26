@@ -18,7 +18,7 @@ const page = () => {
   const [selectedCity, setSelectedCity] = useState("選擇縣市");
   const [selectedDistricts, setSelectedDistricts] = useState([]);
   const [searchStation, setSearchStation] = useState("");
-  const [showCheckBoxGroup, setShowCheckBoxGroup] = useState(false);
+  const [showCheckBoxAndTable, setShowCheckBoxAndTable] = useState(false);
 
   useEffect(() => {
     fetchYouBikeData()
@@ -52,7 +52,7 @@ const page = () => {
 
   const handleSelectCity = (value) => {
     setSelectedCity(value);
-    setShowCheckBoxGroup(true);
+    setShowCheckBoxAndTable(true);
   };
 
   const handleSearchStation = (query) => {
@@ -81,7 +81,7 @@ const page = () => {
               siteData={filteredYoubikeData}
             />
           </div>
-          {showCheckBoxGroup && (
+          {showCheckBoxAndTable && (
             <CheckBoxGroup
               options={options}
               onSelect={handleSelectCheckBox}
@@ -100,11 +100,13 @@ const page = () => {
           ></Image>
         </div>
       </div>
-      <Table
-        datas={filteredYoubikeData}
-        columns={columns}
-        city={selectedCity}
-      />
+      {showCheckBoxAndTable && (
+        <Table
+          datas={filteredYoubikeData}
+          columns={columns}
+          city={selectedCity}
+        />
+      )}
     </>
   );
 };
