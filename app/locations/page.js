@@ -92,7 +92,7 @@ const page = () => {
         <div className={styles.right}>
           <Image
             src="/Frame.svg"
-            alt="Logo"
+            alt="ubike"
             width={500}
             height={170}
             priority={true}
