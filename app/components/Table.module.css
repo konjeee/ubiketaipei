@@ -1,5 +1,10 @@
 .tablecontainer {
   margin: 40px 8%;
+  @media (max-width: 768px) {
+    width: 84%;
+    overflow-x: scroll;
+    border-radius: 28px;
+  }
 }
 
 .table {
